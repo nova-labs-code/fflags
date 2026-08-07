@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Roblox Fast Flags Setup</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background: #0b0d12;
+      color: #e8eaf0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+      font-size: 32px;
+    }
+
+    .subtitle {
+      color: #9298a6;
+      margin-bottom: 32px;
+    }
+
+    .step {
+      background: #13161d;
+      border: 1px solid #252a35;
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .step h2 {
+      margin-top: 0;
+      font-size: 19px;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 30px;
+      height: 30px;
+
+      margin-right: 8px;
+
+      border-radius: 50%;
+      background: #5865f2;
+      color: white;
+
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    p {
+      color: #c7cad2;
+    }
+
+    code {
+      padding: 3px 6px;
+      border-radius: 5px;
+      background: #0a0c10;
+      color: #d9ddff;
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    .code-block {
+      position: relative;
+      margin: 14px 0;
+
+      background: #090b0f;
+      border: 1px solid #292e39;
+      border-radius: 9px;
+
+      overflow-x: auto;
+    }
+
+    .code-label {
+      padding: 8px 13px;
+
+      background: #11141a;
+      border-bottom: 1px solid #292e39;
+
+      color: #8f96a6;
+
+      font-size: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .code-block pre {
+      margin: 0;
+      padding: 16px;
+
+      color: #e1e4ea;
+
+      font-family: Consolas, Monaco, monospace;
+      font-size: 14px;
+      line-height: 1.6;
+
+      white-space: pre;
+    }
+
+    .note {
+      color: #8f96a6;
+      font-size: 14px;
+    }
+
+    .flags {
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <h1>Roblox Fast Flags Setup</h1>
+
+    <p class="subtitle">
+      Manual ClientAppSettings.json installation
+    </p>
+
+    <section class="step">
+      <h2>
+        <span class="step-number">1</span>
+        Close Roblox
+      </h2>
+
+      <p>
+        Completely close Roblox before changing the files.
+      </p>
+    </section>
+
+    <section class="step">
+      <h2>
+        <span class="step-number">2</span>
+        Open the Roblox Versions folder
+      </h2>
+
+      <p>
+        Press <strong>Win + R</strong> and paste:
+      </p>
+
+      <div class="code-block">
+        <div class="code-label">Path</div>
+        <pre><code>%localappdata%\Roblox\Versions</code></pre>
+      </div>
+
+      <p>
+        Press <strong>Enter</strong>.
+      </p>
+    </section>
+
+    <section class="step">
+      <h2>
+        <span class="step-number">3</span>
+        Find the Roblox version
+      </h2>
+
+      <p>
+        Open the <code>version-...</code> folder containing:
+      </p>
+
+      <div class="code-block">
+        <div class="code-label">File</div>
+        <pre><code>RobloxPlayerBeta.exe</code></pre>
+      </div>
+    </section>
+
+    <section class="step">
+      <h2>
+        <span class="step-number">4</span>
+        Create ClientSettings
+      </h2>
+
+      <p>
+        Inside that version folder, create a folder named:
+      </p>
+
+      <div class="code-block">
+        <div class="code-label">Folder</div>
+        <pre><code>ClientSettings</code></pre>
+      </div>
+    </section>
+
+    <section class="step">
+      <h2>
+        <span class="step-number">5</span>
+        Open ClientSettings
+      </h2>
+
+      <p>
+        Open the newly created <code>ClientSettings</code> folder.
+      </p>
+    </section>
+
+    <section class="step">
+      <h2>
+        <span class="step-number">6</span>
+        Create ClientAppSettings.json
+      </h2>
+
+      <p>
+        Create a new text document and rename it:
+      </p>
+
+      <div class="code-block">
+        <div class="code-label">File</div>
+        <pre><code>ClientAppSettings.json</code></pre>
+      </div>
+
+      <p class="note">
+        Make sure Windows isn't hiding the <code>.txt</code> extension.
+      </p>
+    </section>
+
+    <section class="step">
+      <h2>
+        <span class="step-number">7</span>
+        Open the JSON file
+      </h2>
+
+      <p>
+        Open <code>ClientAppSettings.json</code> in Notepad.
+      </p>
+    </section>
+
+    <section class="step">
+      <h2>
+        <span class="step-number">8</span>
+        Add the Fast Flags
+      </h2>
+
+      <p>
+        Paste your Fast Flag configuration into the file and save it.
+      </p>
+
+      <div class="code-block flags">
+        <div class="code-label">ClientAppSettings.json</div>
+
+        <pre><code>{
+  "FFlagDebugSkyGray": "true",
+
+  "FFlagDebugForceNoTextures": "true",
+
+  "FIntRenderShadowIntensity": "0",
+  "FFlagRenderEnableGlobalShadows": "false",
+  "FFlagRenderShadowsDisableAll": "true",
+
+  "FIntFRMMinGrassDistance": "0",
+  "FIntFRMMaxGrassDistance": "0",
+  "FIntRenderGrassDetailStrands": "0",
+
+  "FFlagFastGPULightCulling3": "true",
+
+  "DFIntTaskSchedulerTargetFps": "1000",
+  "FFlagTaskSchedulerLimitTargetFpsToConsoleFps": "false",
+
+  "FIntRenderPreloadTextureLowerLimit": "1",
+  "FFlagRenderGpuTextureCompressor": "true",
+
+  "FIntGraphicsFRMQualityLevel1": "1"
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="step">
+      <h2>
+        <span class="step-number">9</span>
+        Launch Roblox
+      </h2>
+
+      <p>
+        Start Roblox normally. The configuration is loaded when the client starts.
+      </p>
+    </section>
+
+    <section class="step">
+      <h2>
+        <span class="step-number">10</span>
+        Complete file location
+      </h2>
+
+      <p>
+        The complete location is:
+      </p>
+
+      <div class="code-block">
+        <div class="code-label">Path</div>
+
+        <pre><code>%localappdata%\Roblox\Versions\version-XXXXXXXX\ClientSettings\ClientAppSettings.json</code></pre>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
