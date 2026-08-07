@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Roblox Fast Flags Setup</title>
+  <title>Roblox FPS Optimization</title>
 
   <style>
     * {
@@ -17,22 +17,40 @@
       background: #0b0d12;
       color: #e8eaf0;
       font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
     }
 
     .container {
       width: 100%;
-      max-width: 850px;
+      max-width: 900px;
       margin: auto;
     }
 
+    header {
+      margin-bottom: 35px;
+    }
+
     h1 {
-      margin-bottom: 8px;
-      font-size: 32px;
+      margin: 0 0 8px;
+      font-size: 34px;
     }
 
     .subtitle {
+      margin: 0;
       color: #9298a6;
-      margin-bottom: 32px;
+      font-size: 16px;
+    }
+
+    .intro {
+      margin-top: 22px;
+      padding: 18px 20px;
+      background: #111827;
+      border: 1px solid #273449;
+      border-radius: 12px;
+    }
+
+    .intro strong {
+      color: #9da7ff;
     }
 
     .step {
@@ -44,7 +62,10 @@
     }
 
     .step h2 {
-      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
       font-size: 19px;
     }
 
@@ -53,10 +74,9 @@
       align-items: center;
       justify-content: center;
 
-      width: 30px;
-      height: 30px;
-
-      margin-right: 8px;
+      min-width: 31px;
+      width: 31px;
+      height: 31px;
 
       border-radius: 50%;
       background: #5865f2;
@@ -73,39 +93,66 @@
     code {
       padding: 3px 6px;
       border-radius: 5px;
-      background: #0a0c10;
+      background: #090c11;
       color: #d9ddff;
       font-family: Consolas, Monaco, monospace;
     }
 
     .code-block {
       position: relative;
-      margin: 14px 0;
+      margin: 15px 0;
 
       background: #090b0f;
       border: 1px solid #292e39;
       border-radius: 9px;
 
-      overflow-x: auto;
+      overflow: hidden;
     }
 
-    .code-label {
-      padding: 8px 13px;
+    .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 8px 10px 8px 13px;
 
       background: #11141a;
       border-bottom: 1px solid #292e39;
+    }
 
+    .code-label {
       color: #8f96a6;
-
       font-size: 12px;
-      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+    }
+
+    .copy-button {
+      border: 1px solid #343a48;
+      border-radius: 6px;
+
+      background: #1a1e27;
+      color: #d9dce4;
+
+      padding: 6px 10px;
+
+      font-size: 12px;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .copy-button:hover {
+      background: #5865f2;
+      border-color: #5865f2;
+      color: white;
     }
 
     .code-block pre {
       margin: 0;
       padding: 16px;
+
+      overflow-x: auto;
 
       color: #e1e4ea;
 
@@ -121,8 +168,37 @@
       font-size: 14px;
     }
 
-    .flags {
-      margin-top: 25px;
+    .warning {
+      padding: 18px 20px;
+
+      background: #211b12;
+      border: 1px solid #5d481e;
+      border-radius: 12px;
+
+      color: #d9c58e;
+    }
+
+    .warning strong {
+      color: #f0d58b;
+    }
+
+    .result {
+      padding: 18px 20px;
+
+      background: #101b16;
+      border: 1px solid #254635;
+      border-radius: 12px;
+    }
+
+    .result strong {
+      color: #8ee0ae;
+    }
+
+    .footer {
+      margin-top: 30px;
+      color: #737987;
+      font-size: 13px;
+      text-align: center;
     }
   </style>
 </head>
@@ -131,131 +207,306 @@
 
   <main class="container">
 
-    <h1>Roblox Fast Flags Setup</h1>
+    <header>
+      <h1>Roblox FPS Optimization</h1>
 
-    <p class="subtitle">
-      Manual ClientAppSettings.json installation
-    </p>
+      <p class="subtitle">
+        Manual ClientAppSettings.json setup
+      </p>
 
+      <div class="intro">
+        <strong>What this does:</strong>
+        This configuration is intended to improve FPS by reducing the amount
+        of rendering work Roblox has to perform. It removes or reduces things
+        such as textures, shadows, grass, and other graphical effects.
+        Results depend on your PC, Roblox version, and which flags are currently
+        supported by Roblox.
+      </div>
+    </header>
+
+
+    <!-- STEP 1 -->
     <section class="step">
+
       <h2>
         <span class="step-number">1</span>
-        Close Roblox
+        Completely close Roblox
       </h2>
 
       <p>
-        Completely close Roblox before changing the files.
+        Before changing anything, completely close Roblox.
+        Make sure the Roblox client is no longer running.
       </p>
+
+      <p class="note">
+        If Roblox is still running, close it before continuing.
+      </p>
+
     </section>
 
+
+    <!-- STEP 2 -->
     <section class="step">
+
       <h2>
         <span class="step-number">2</span>
         Open the Roblox Versions folder
       </h2>
 
       <p>
-        Press <strong>Win + R</strong> and paste:
+        Press <strong>Win + R</strong> on your keyboard.
+        This opens the Windows Run dialog.
+      </p>
+
+      <p>
+        Paste this location into the Run box:
       </p>
 
       <div class="code-block">
-        <div class="code-label">Path</div>
+
+        <div class="code-header">
+          <span class="code-label">Windows Run</span>
+
+          <button class="copy-button"
+            onclick="copyCode(this, '%localappdata%\\Roblox\\Versions')">
+            Copy
+          </button>
+        </div>
+
         <pre><code>%localappdata%\Roblox\Versions</code></pre>
+
       </div>
 
       <p>
         Press <strong>Enter</strong>.
       </p>
+
     </section>
 
+
+    <!-- STEP 3 -->
     <section class="step">
+
       <h2>
         <span class="step-number">3</span>
-        Find the Roblox version
+        Find the latest Roblox version
       </h2>
 
       <p>
-        Open the <code>version-...</code> folder containing:
+        You will see multiple folders with names similar to:
       </p>
 
       <div class="code-block">
-        <div class="code-label">File</div>
-        <pre><code>RobloxPlayerBeta.exe</code></pre>
+
+        <div class="code-header">
+          <span class="code-label">Example</span>
+
+          <button class="copy-button"
+            onclick="copyCode(this, 'version-xxxxxxxxxxxxxxxx')">
+            Copy
+          </button>
+        </div>
+
+        <pre><code>version-xxxxxxxxxxxxxxxx</code></pre>
+
       </div>
+
+      <p>
+        Roblox can have several versions installed at the same time.
+        You want the <strong>latest version folder</strong>.
+      </p>
+
+      <p>
+        In File Explorer, click the <strong>Date modified</strong> column
+        to sort the folders. Put the newest folder at the top.
+      </p>
+
+      <p>
+        Open the newest <code>version-...</code> folder.
+      </p>
+
+      <p>
+        Inside it, look for:
+      </p>
+
+      <div class="code-block">
+
+        <div class="code-header">
+          <span class="code-label">Roblox executable</span>
+
+          <button class="copy-button"
+            onclick="copyCode(this, 'RobloxPlayerBeta.exe')">
+            Copy
+          </button>
+        </div>
+
+        <pre><code>RobloxPlayerBeta.exe</code></pre>
+
+      </div>
+
+      <p class="note">
+        If the folder does not contain RobloxPlayerBeta.exe, check the next
+        newest version folder.
+      </p>
+
     </section>
 
+
+    <!-- STEP 4 -->
     <section class="step">
+
       <h2>
         <span class="step-number">4</span>
-        Create ClientSettings
+        Create the ClientSettings folder
       </h2>
 
       <p>
-        Inside that version folder, create a folder named:
+        Inside the current Roblox version folder, right-click an empty area
+        and select:
+      </p>
+
+      <p>
+        <strong>New → Folder</strong>
+      </p>
+
+      <p>
+        Name the folder:
       </p>
 
       <div class="code-block">
-        <div class="code-label">Folder</div>
+
+        <div class="code-header">
+          <span class="code-label">Folder name</span>
+
+          <button class="copy-button"
+            onclick="copyCode(this, 'ClientSettings')">
+            Copy
+          </button>
+        </div>
+
         <pre><code>ClientSettings</code></pre>
+
       </div>
+
     </section>
 
+
+    <!-- STEP 5 -->
     <section class="step">
+
       <h2>
         <span class="step-number">5</span>
         Open ClientSettings
       </h2>
 
       <p>
-        Open the newly created <code>ClientSettings</code> folder.
+        Double-click the newly created <code>ClientSettings</code> folder.
       </p>
+
+      <p>
+        You should now be inside the folder where the configuration file
+        will be stored.
+      </p>
+
     </section>
 
+
+    <!-- STEP 6 -->
     <section class="step">
+
       <h2>
         <span class="step-number">6</span>
         Create ClientAppSettings.json
       </h2>
 
       <p>
-        Create a new text document and rename it:
+        Right-click inside the <code>ClientSettings</code> folder and select:
+      </p>
+
+      <p>
+        <strong>New → Text Document</strong>
+      </p>
+
+      <p>
+        Rename the new file to:
       </p>
 
       <div class="code-block">
-        <div class="code-label">File</div>
+
+        <div class="code-header">
+          <span class="code-label">File name</span>
+
+          <button class="copy-button"
+            onclick="copyCode(this, 'ClientAppSettings.json')">
+            Copy
+          </button>
+        </div>
+
         <pre><code>ClientAppSettings.json</code></pre>
+
       </div>
 
       <p class="note">
-        Make sure Windows isn't hiding the <code>.txt</code> extension.
+        Make sure the file does not end in
+        <code>.json.txt</code>.
       </p>
+
+      <p>
+        If Windows hides file extensions, enable:
+      </p>
+
+      <p>
+        <strong>View → Show → File name extensions</strong>
+      </p>
+
     </section>
 
+
+    <!-- STEP 7 -->
     <section class="step">
+
       <h2>
         <span class="step-number">7</span>
         Open the JSON file
       </h2>
 
       <p>
-        Open <code>ClientAppSettings.json</code> in Notepad.
+        Right-click <code>ClientAppSettings.json</code> and select
+        <strong>Open with → Notepad</strong>.
       </p>
+
+      <p>
+        The file should be empty if you just created it.
+      </p>
+
     </section>
 
+
+    <!-- STEP 8 -->
     <section class="step">
+
       <h2>
         <span class="step-number">8</span>
-        Add the Fast Flags
+        Paste the FPS optimization configuration
       </h2>
 
       <p>
-        Paste your Fast Flag configuration into the file and save it.
+        Copy the configuration below and paste it into
+        <code>ClientAppSettings.json</code>.
       </p>
 
-      <div class="code-block flags">
-        <div class="code-label">ClientAppSettings.json</div>
+      <div class="code-block">
 
-        <pre><code>{
+        <div class="code-header">
+          <span class="code-label">ClientAppSettings.json</span>
+
+          <button class="copy-button"
+            onclick="copyCode(this, document.getElementById('flags').innerText)">
+            Copy
+          </button>
+        </div>
+
+        <pre><code id="flags">{
   "FFlagDebugSkyGray": "true",
 
   "FFlagDebugForceNoTextures": "true",
@@ -278,38 +529,127 @@
 
   "FIntGraphicsFRMQualityLevel1": "1"
 }</code></pre>
+
       </div>
+
+      <p>
+        Press <strong>Ctrl + S</strong> to save the file.
+      </p>
+
     </section>
 
+
+    <!-- STEP 9 -->
     <section class="step">
+
       <h2>
         <span class="step-number">9</span>
-        Launch Roblox
+        Start Roblox
       </h2>
 
       <p>
-        Start Roblox normally. The configuration is loaded when the client starts.
+        Close Notepad and launch Roblox normally.
       </p>
+
+      <p>
+        The configuration is read when the Roblox client starts.
+      </p>
+
     </section>
 
+
+    <!-- STEP 10 -->
     <section class="step">
+
       <h2>
         <span class="step-number">10</span>
-        Complete file location
+        Your final file location
       </h2>
 
       <p>
-        The complete location is:
+        The final path will look similar to:
       </p>
 
       <div class="code-block">
-        <div class="code-label">Path</div>
+
+        <div class="code-header">
+          <span class="code-label">Final path</span>
+
+          <button class="copy-button"
+            onclick="copyCode(this, '%localappdata%\\Roblox\\Versions\\version-XXXXXXXX\\ClientSettings\\ClientAppSettings.json')">
+            Copy
+          </button>
+        </div>
 
         <pre><code>%localappdata%\Roblox\Versions\version-XXXXXXXX\ClientSettings\ClientAppSettings.json</code></pre>
+
       </div>
+
     </section>
 
+
+    <!-- RESULT -->
+    <section class="step result">
+
+      <h2>FPS Optimization</h2>
+
+      <p>
+        <strong>Why this can help:</strong>
+        the configuration attempts to reduce rendering workload by disabling
+        shadows, reducing grass rendering, removing textures, lowering certain
+        graphics settings, and enabling GPU-related optimizations.
+      </p>
+
+      <p>
+        The <code>DFIntTaskSchedulerTargetFps</code> setting requests a
+        1000 FPS target, but this does <strong>not</strong> mean Roblox will
+        actually render at 1000 FPS. Your monitor, GPU, CPU, game workload,
+        and Roblox's current client restrictions still determine the actual FPS.
+      </p>
+
+    </section>
+
+
+    <!-- WARNING -->
+    <section class="step warning">
+
+      <strong>Important:</strong>
+
+      <p>
+        Roblox updates can create a new version folder. If that happens,
+        the <code>ClientSettings</code> folder may need to be recreated in
+        the newest version directory.
+      </p>
+
+      <p>
+        Also, Roblox currently restricts which Fast Flags can be changed
+        through local configuration files. A flag being present in the JSON
+        does not guarantee that the current Roblox client will honor it.
+      </p>
+
+    </section>
+
+
+    <p class="footer">
+      Roblox FPS Optimization • ClientAppSettings.json
+    </p>
+
   </main>
+
+
+  <script>
+    function copyCode(button, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const original = button.textContent;
+
+        button.textContent = "Copied!";
+
+        setTimeout(() => {
+          button.textContent = original;
+        }, 1500);
+      });
+    }
+  </script>
 
 </body>
 </html>
